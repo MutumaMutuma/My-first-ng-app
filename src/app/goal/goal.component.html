@@ -1,0 +1,10 @@
+<ul>
+    <div *ngFor='let goal of goals;let i = index'>
+        <li >{{goal.name}}</li>
+        <button  (click)='toogleDetails(i)'>more</button>
+
+        <app-goal-details *ngIf="goal.showDescription" [goal]='goal' (isComplete)= 'completeGoal($event,i)'></app-goal-details>
+    </div>
+
+</ul>
+<p style="color:red;" *ngIf='goals.length > 5'>You have too many goals</p>
